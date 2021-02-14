@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ING Shopping Cart Challenge ES^6</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link type="image/x-icon" rel="shortcut icon" href="../assets/image/favicon.ico" />
+    <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <script
+      src="https://unpkg.com/ing-simple-cart@1.0.13/dist/ing-shopping-cart.min.js"
+      type="text/javascript"
+    ></script>
+  </head>
+
+  <header>
+    <div
+      class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 ing-bg border-bottom shadow-sm"
+    >
+      <img src="../assets//image/ing-logo-full.svg" width="150" />
+      <h2 class="my-0 mr-md-auto font-weight-normal ing-title-header">Shopping-Cart-Challenge</h2>
+
+      <button class="btn btn-outline-light mr-2" onClick="shoppingCart.destroy()">
+        Clear Cart
+      </button>
+      <a class="btn btn-outline-dark" href="https://github.com/mani242530/ing-simple-cart"
+        >Github Repo</a
+      >
+    </div>
+  </header>
+  <div class="container body-content">
+    <div class="row flex-nowrap">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-12">
+        <h3 class="my-0 font-weight-normal ing-card-header-h2 mb-3">Products</h3>
+
+        <div class="padding-bottom-3x mb-1">
+          <div class="products-list">
+            <div class="row product"></div>
+          </div>
+        </div>
+
+        <div class="card mb-4 shadow-sm" id="cart-panel">
+          <div class="card-header ing-card-header">
+            <h3 class="ing-card-header-font">Cart</h3>
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <tbody class="cart"></tbody>
+              <tfoot>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="text-right">Total: <strong class="total"></strong></td>
+                <td></td>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    shoppingCart.isShowHideCartPanel();
+
+    function renderProduct(products) {
+      // const $product = document.querySelector('.card-deck');
+      const $product = document.querySelector('.product');
+
+      $product.innerHTML = products.basket
+        .map(
+          product =>
+            `<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            	<div class="product-card">
+				<div class="product-rating">
+                <div class="rating-stars">
+                  <i class="icon-star filled"></i>
+                  <i class="icon-star filled"></i>
+                  <i class="icon-star filled"></i>
+                  <i class="icon-star filled"></i>
+                  <i class="icon-star-empty"></i>
+                </div>
+              </div>
+              <a class="product-thumb" href="#">
+                <img src="../assets/image/${product.mediaUrl}" alt="${
+              product.title
+            }" width="215" height="120" />
+              </a>
+              <div class="product-info">
+                <h3 class="product-title">
+                  <a href="#">${product.title}</a>
+                </h3>
+                <h4 class="product-price"><del class="text-muted text-normal">$${
+                  product.oldPrice
+                }</del>$${product.price}</h4>
+                <div class="product-buttons">
+                  <button class="btn btn-outline-primary btn-sm onClick="shoppingCart.add(${(product.productId,
+                  product.title,
+                  product.price)});
+								shoppingCart.isShowHideCartPanel()">Add to Cart</button>
+                </div>
+              </div>
+			  </div>
+       		 </div>`,
+        )
+        .join('');
+    }
+    renderProduct(shoppingCart.products());
+
+    function renderCart(items) {
+      const $cart = document.querySelector('.cart');
+      const $total = document.querySelector('.total');
+
+      $cart.innerHTML = items
+        .map(
+          item => `
+					<tr>
+						<td>#${item.productId}</td>
+						<td>${item.title}</td>
+						<td>${item.quantity}</td>
+						<td style="width: 60px;">	
+							<button type="button" class="btn btn-block btn-sm btn-outline-primary"
+								onClick="shoppingCart.quantity(${item.productId},1)">+</button>
+						</td>
+						<td style="width: 60px;">	
+							<button type="button" class="btn btn-block btn-sm btn-outline-primary"
+								onClick="shoppingCart.quantity(${item.productId},-1)">-</button>
+						</td>
+						<td class="text-right">$${item.price}</td>
+						<td class="text-right"><Button class="btn btn-primary" onClick="shoppingCart.remove(${item.productId})">Delete</Button></td>
+					</tr>`,
+        )
+        .join('');
+
+      $total.innerHTML = '$' + shoppingCart.total();
+    }
+    renderCart(shoppingCart.list());
+    shoppingCart.onChange(renderCart);
+  </script>
+
+  <!-- <lion-input name="firstName"></lion-input>
+    <lion-button>Button Text</lion-button> -->
+
+  <footer class="footer">
+    <div class="container">
+      <div class="copyright">© 2021 ING SIMPLE CART, all rights reserved.</div>
+    </div>
+  </footer>
+</html>

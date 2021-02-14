@@ -1,0 +1,60 @@
+{
+  "name": "ing-simple-cart",
+  "version": "1.0.13",
+  "description": "Simple shopping cart on coding challenege using ES6 and Local Storage",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mani242530/ing-simple-cart.git"
+  },
+  "keywords": [
+    "simple",
+    "shopping",
+    "cart",
+    "coding",
+    "challenge",
+    "js",
+    "javascript",
+    "es6",
+    "localstorage"
+  ],
+  "author": "Manivannan Babu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mani242530/ing-simple-cart/issues"
+  },
+  "homepage": "https://github.com/mani242530/ing-simple-cart#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.12.16",
+    "@babel/core": "^7.12.16",
+    "@babel/plugin-transform-runtime": "^7.12.15",
+    "@babel/preset-env": "^7.12.16",
+    "@babel/runtime": "^7.9.2",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.2.0",
+    "babel-loader": "^8.1.0",
+    "font-awesome": "^4.7.0",
+    "jest": "^24.9.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^1.16.4",
+    "rollup": "^2.30.0",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "dependencies": {
+    "@lion/button": "^0.8.11",
+    "@lion/icon": "^0.9.5",
+    "@lion/input": "^0.10.16"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "arrowParens": "avoid",
+    "trailingComma": "all"
+  }
+}
