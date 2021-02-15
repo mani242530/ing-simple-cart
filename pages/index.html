@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../assets/css/style.css" />
 
     <script
-      src="https://unpkg.com/ing-simple-cart@1.0.13/dist/ing-shopping-cart.min.js"
+      src="https://unpkg.com/ing-simple-cart@1.0.17/dist/ing-shopping-cart.min.js"
       type="text/javascript"
     ></script>
   </head>
@@ -68,7 +68,6 @@
     shoppingCart.isShowHideCartPanel();
 
     function renderProduct(products) {
-      // const $product = document.querySelector('.card-deck');
       const $product = document.querySelector('.product');
 
       $product.innerHTML = products.basket
@@ -98,10 +97,10 @@
                   product.oldPrice
                 }</del>$${product.price}</h4>
                 <div class="product-buttons">
-                  <button class="btn btn-outline-primary btn-sm onClick="shoppingCart.add(${(product.productId,
-                  product.title,
-                  product.price)});
-								shoppingCart.isShowHideCartPanel()">Add to Cart</button>
+                  <button type="button" class="btn btn-outline-primary btn-sm"
+				  onClick="shoppingCart.add(${`{productId: ${product.productId},
+                  title: '${product.title}',
+                  price: ${product.price}}`}); shoppingCart.isShowHideCartPanel()">Add to Cart</button>
                 </div>
               </div>
 			  </div>
@@ -143,7 +142,7 @@
   </script>
 
   <!-- <lion-input name="firstName"></lion-input>
-    <lion-button>Button Text</lion-button> -->
+  <lion-button>Button Text</lion-button> -->
 
   <footer class="footer">
     <div class="container">
