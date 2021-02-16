@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ING Shopping Cart Challenge ES^6</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link type="image/x-icon" rel="shortcut icon" href="../assets/image/favicon.ico" />
+    <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <script src="https://unpkg.com/ing-simple-cart@1.0.19/dist/ing-simple-cart.min.js" type="text/javascript"></script>
+  </head>
+
+  <header>
+    <div
+      class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 ing-bg border-bottom shadow-sm"
+    >
+      <img src="../assets//image/ing-logo-full.svg" width="150" />
+      <h2 class="my-0 mr-md-auto font-weight-normal ing-title-header">Shopping-Cart-Challenge</h2>
+
+      <a class="btn btn-outline-light mr-2 cart-length" href="cart.html">Cart(0)</a>
+      <a class="btn btn-outline-dark" href="https://github.com/mani242530/ing-simple-cart"
+        >Github Repo</a
+      >
+    </div>
+  </header>
+
+  <div class="container padding-bottom-3x mb-1 body-content">
+    <div class="row flex-nowrap">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-12">
+        <h4>Billing Address</h4>
+        <hr class="padding-bottom-1x" />
+
+        <form novalidate="" class="userForm">
+          <div class="user-details"></div>
+          <div class="address"></div>
+        </form>
+        <div class="shopping-cart-footer">
+          <div class="column">
+            <a class="btn btn-outline-secondary" href="cart.html">
+              <i class="icon-arrow-left"></i>&nbsp;Back
+            </a>
+          </div>
+          <div class="column">
+            <a class="btn btn-success" href="payment.html">Continue</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function renderUser(user) {
+      const $user = document.querySelector('.user-details');
+      $user.innerHTML = ` <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="firstname">First Name</label>
+                  <input
+                    class="form-control "
+                    formcontrolname="firstname"
+                    id="firstname"
+                    name="firstname"
+                    type="text"
+                    value="${user.firstName}"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="lastname">Last Name</label>
+                  <input
+                    class="form-control "
+                    formcontrolname="lastname"
+                    id="lastname"
+                    name="lastname"
+                    type="text"
+                    value="${user.lastName}"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="email">E-mail Address</label>
+                  <input
+                    class="form-control"
+                    formcontrolname="email"
+                    id="email"
+                    name="email"
+                    type="email"
+                    value="${user.personalEmailAddress}"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input
+                    class="form-control"
+                    formcontrolname="phone"
+                    id="phone"
+                    name="phone"
+                    type="text"
+                    value="${user.phoneNumber}"
+                  />
+                </div>
+              </div>
+            </div>`;
+
+      const $address = document.querySelector('.address');
+      $address.innerHTML = user.addresses
+        .map(
+          address =>
+            `<div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="address1">Street 1</label>
+                  <input
+                    class="form-control "
+                    formcontrolname="address1"
+                    id="address1"
+                    name="address1"
+                    type="text"
+                    value="${address.street1}"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="address2">Street 2</label>
+                  <input
+                    class="form-control"
+                    formcontrolname="address2"
+                    id="address2"
+                    name="address2"
+                    type="text"
+                    value="${address.street2}"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="zip">Postal Code</label>
+                  <input
+                    class="form-control "
+                    formcontrolname="zip"
+                    id="zip"
+                    name="zip"
+                    type="text"
+                    value="${address.postalCode}"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <input
+                    class="form-control "
+                    formcontrolname="city"
+                    id="city"
+                    name="city"
+                    type="text"
+                    value="${address.city}"
+                  />
+                </div>
+              </div>
+            </div>`,
+        )
+        .join('');
+    }
+
+    function renderCartLength(item) {
+      const $cartLength = document.querySelector('.cart-length');
+      $cartLength.innerHTML = `<span>Cart(${item})</span>`;
+    }
+
+    renderUser(shoppingCart.user());
+    renderCartLength(shoppingCart.cartCount());
+  </script>
+  <!-- <lion-input name="firstName"></lion-input>
+ <lion-button>Button Text</lion-button> -->
+
+  <footer class="footer">
+    <div class="container">
+      <div class="copyright">© 2021 ING SIMPLE CART, all rights reserved.</div>
+    </div>
+  </footer>
+</html>

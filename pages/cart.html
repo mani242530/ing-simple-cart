@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ING Shopping Cart Challenge ES^6</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link type="image/x-icon" rel="shortcut icon" href="../assets/image/favicon.ico" />
+    <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <script
+      src="https://unpkg.com/ing-simple-cart@1.0.19/dist/ing-simple-cart.min.js"
+      type="text/javascript"
+    ></script>
+  </head>
+
+  <header>
+    <div
+      class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 ing-bg border-bottom shadow-sm"
+    >
+      <img src="../assets//image/ing-logo-full.svg" width="150" />
+      <h2 class="my-0 mr-md-auto font-weight-normal ing-title-header">Shopping-Cart-Challenge</h2>
+
+      <a class="btn btn-outline-light mr-2 cart-length" href="cart.html"></a>
+      <a class="btn btn-outline-dark" href="https://github.com/mani242530/ing-simple-cart"
+        >Github Repo</a
+      >
+    </div>
+  </header>
+
+  <div class="container padding-bottom-3x mb-1 body-content">
+    <div class="row flex-nowrap">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-12">
+        <div class="card-header ing-card-header">
+          <h3 class="ing-card-header-font">Cart</h3>
+        </div>
+        <div class="table-responsive shopping-cart">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Product Name</th>
+                <th class="text-center">Quantity</th>
+                <th class="text-center">Price</th>
+                <th class="text-center">Subtotal</th>
+                <th class="text-right">
+                  <button class="btn btn-sm btn-outline-danger" onClick="shoppingCart.destroy()">
+                    Clear Cart
+                  </button>
+                </th>
+              </tr>
+            </thead>
+            <!---->
+            <tbody class="cart">
+              <!---->
+            </tbody>
+            <!---->
+          </table>
+        </div>
+        <div class="shopping-cart-footer">
+          <div class="column"></div>
+          <div class="column text-lg">
+            Total: <span class="text-medium"><strong class="total"></strong></span>
+          </div>
+        </div>
+        <div class="shopping-cart-footer">
+          <div class="column">
+            <a class="btn btn-outline-secondary" href="index.html">
+              <i class="icon-arrow-left"></i>&nbsp;Back to Shopping
+            </a>
+          </div>
+          <div class="column">
+            <a class="btn btn-success" href="checkout.html">Checkout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function renderCart(items) {
+      const $cart = document.querySelector('.cart');
+      const $total = document.querySelector('.total');
+
+      $cart.innerHTML = items
+        .map(
+          item => `
+            <tr class="">
+                <td>#${item.productId}</td>
+                <td>
+                  <div class="product-item">
+                    <a class="product-thumb" href="#">
+                      <img width="200 " alt="Product" src="../assets/image/${item.mediaUrl}" />
+                    </a>
+                    <div class="product-info">
+                      <h4 class="product-title">
+                        <a href="#">${item.title}</a>
+                      </h4>
+                    </div>
+                  </div>
+                </td>
+                <td class="text-center">
+                  <div class="count-input">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary" 
+                          type="button" 
+                          onClick="shoppingCart.quantity(${item.productId},-1)">-</button>
+                      </div>
+                      <input class="form-control text-center" placeholder="" value=" ${
+                        item.quantity
+                      }" type="text" disabled>
+                     
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" 
+                          type="button" onClick="shoppingCart.quantity(${
+                            item.productId
+                          },1)">+</button>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="text-center text-lg text-medium">$${item.price}</td>
+                <td class="text-center text-lg text-medium">$${item.quantity * item.price}</td>
+                <td class="text-right">
+                  <a class="remove-from-cart" data-toggle="tooltip" href="#" onClick="shoppingCart.remove(${
+                    item.productId
+                  })" title="Remove item">
+                    <i class="icon-cross"></i>
+                  </a>
+                </td>
+            </tr>`,
+        )
+        .join('');
+
+      $total.innerHTML = '$' + shoppingCart.total();
+    }
+
+    function renderCartLength(item) {
+      const $cartLength = document.querySelector('.cart-length');
+      $cartLength.innerHTML = `<span>Cart(${item})</span>`;
+    }
+
+    renderCart(shoppingCart.list());
+    shoppingCart.onChange(renderCart);
+
+    renderCartLength(shoppingCart.cartCount());
+  </script>
+
+  <!-- <lion-input name="firstName"></lion-input>
+ <lion-button>Button Text</lion-button> -->
+
+  <footer class="footer">
+    <div class="container">
+      <div class="copyright">© 2021 ING SIMPLE CART, all rights reserved.</div>
+    </div>
+  </footer>
+</html>

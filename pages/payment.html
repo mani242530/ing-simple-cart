@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ING Shopping Cart Challenge ES^6</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link type="image/x-icon" rel="shortcut icon" href="../assets/image/favicon.ico" />
+    <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <script
+      src="https://unpkg.com/ing-simple-cart@1.0.19/dist/ing-simple-cart.min.js"
+      type="text/javascript"
+    ></script>
+  </head>
+
+  <header>
+    <div
+      class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 ing-bg border-bottom shadow-sm"
+    >
+      <img src="../assets//image/ing-logo-full.svg" width="150" />
+      <h2 class="my-0 mr-md-auto font-weight-normal ing-title-header">Shopping-Cart-Challenge</h2>
+
+      <a class="btn btn-outline-light mr-2 cart-length" href="cart.html">Cart(0)</a>
+      <a class="btn btn-outline-dark" href="https://github.com/mani242530/ing-simple-cart"
+        >Github Repo</a
+      >
+    </div>
+  </header>
+
+  <div class="container padding-bottom-3x mb-1 body-content">
+    <div class="row flex-nowrap">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-12">
+        <h4>Choose Payment Method</h4>
+        <hr class="padding-bottom-1x" />
+        <form novalidate="" class="">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="thead-default">
+                <tr>
+                  <th>Payment method</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <!---->
+                <tr class="">
+                  <td class="align-middle">
+                    <!---->
+                    <img src="../assets/image/paypal.svg" alt="Paypal" class="" /><!---->
+                  </td>
+                  <td class="align-middle">
+                    <label class="custom-control custom-radio">
+                      <input
+                        class="form-control-radio"
+                        formcontrolname="paymentMethod"
+                        name="paymentMethod"
+                        type="radio"
+                        checked
+                      />
+                      <span class="custom-control-indicator"></span>
+                    </label>
+                  </td>
+                </tr>
+                <tr class="">
+                  <td class="align-middle">
+                    <!----><!---->
+                    <span class="text-medium ">Prepayment</span>
+                  </td>
+                  <td class="align-middle">
+                    <label class="custom-control custom-radio">
+                      <input
+                        class="form-control-radio"
+                        formcontrolname="paymentMethod"
+                        name="paymentMethod"
+                        type="radio"
+                      />
+                      <span class="custom-control-indicator"></span>
+                    </label>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </form>
+        <div class="shopping-cart-footer">
+          <div class="column">
+            <a class="btn btn-outline-secondary" href="checkout.html">
+              <i class="icon-arrow-left"></i>&nbsp;Back
+            </a>
+          </div>
+          <div class="column">
+            <a class="btn btn-success" href="confrim.html">Continue</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <lion-input name="firstName"></lion-input>
+ <lion-button>Button Text</lion-button> -->
+
+  <footer class="footer">
+    <div class="container">
+      <div class="copyright">© 2021 ING SIMPLE CART, all rights reserved.</div>
+    </div>
+  </footer>
+</html>

@@ -1,4 +1,4 @@
-import { products, list, save, clear, listen } from './utils/localstorage'
+import { user, products, list, save, clear, listen } from './utils/localstorage'
 import pkg from './package.json';
 // import '@lion/input/lion-input.js';
 // import '@lion/button/lion-button.js';
@@ -31,7 +31,7 @@ const isCalcable = (product) => (product && product.price && product.quantity)
 
 const isCallback = (cb) => cb && typeof cb === "function"
 
-const isShowHideCartPanel = () => list().length === 0 ? document.getElementById("cart-panel").style.display = 'none' : document.getElementById("cart-panel").style.display = 'block'
+const cartCount = () => list().length;
 
-export { products, list, get, add, remove, update, quantity, total, destroy, exists, subtotal, onChange, isShowHideCartPanel };
+export { user, products, list, get, add, remove, update, quantity, total, destroy, exists, subtotal, onChange, cartCount };
 

@@ -1,0 +1,17 @@
+{
+    "firstName": "Hr J Ritsma",
+    "lastName": "whyte",
+    "addresses": [
+      {
+        "addressIndex": 1,
+        "street1": "Pietje puk straat",
+        "street2": "Pietje puk straat",
+        "houseNumber": "6",
+        "houseNumberAddition": "",
+        "postalCode": "1335HK",
+        "city": "Almere"
+      }
+    ],
+    "personalEmailAddress": "j.ritsma@ing.com",
+    "phoneNumber": "0031-123456789"
+  }
