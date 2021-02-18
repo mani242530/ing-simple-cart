@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../assets/css/style.css" />
 
-    <script src="https://unpkg.com/ing-simple-cart@1.0.19/dist/ing-simple-cart.min.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/ing-simple-cart@1.0.21/dist/ing-simple-cart.min.js" type="text/javascript"></script>
   </head>
 
   <header>
@@ -102,16 +102,13 @@
   </div>
 
   <script>
-    function renderCartLength(item) {
-      const $cartLength = document.querySelector('.cart-length');
-      $cartLength.innerHTML = `<span>Cart(${item})</span>`;
-    }
+    renderCartLength = (item) => {
+        const $cartLength = document.querySelector('.cart-length');
+        $cartLength.innerHTML = `<span>Cart(${item})</span>`;
+    } 
 
     renderCartLength(shoppingCart.cartCount());
   </script>
-
-  <!-- <lion-input name="firstName"></lion-input>
- <lion-button>Button Text</lion-button> -->
 
   <footer class="footer">
     <div class="container">

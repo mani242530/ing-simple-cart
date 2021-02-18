@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../assets/css/style.css" />
 
     <script
-      src="https://unpkg.com/ing-simple-cart@1.0.19/dist/ing-simple-cart.min.js"
+      src="https://unpkg.com/ing-simple-cart@1.0.21/dist/ing-simple-cart.min.js"
       type="text/javascript"
     ></script>
   </head>
@@ -39,7 +39,7 @@
             <thead>
               <tr>
                 <th>Product Name</th>
-                <th class="text-center">Subtotal</th>
+                <th class="text-center">Price</th>
                 <th></th>
               </tr>
             </thead>
@@ -50,7 +50,10 @@
         </div>
         <div class="shopping-cart-footer">
           <div class="column"></div>
-          <div class="column text-lg">Subtotal: <span class="text-medium total"></span></div>
+          <div class="column text-lg">
+            Subtotal:
+            <h3 class="text-medium total"></h3>
+          </div>
         </div>
         <div class="row padding-top-1x mt-3">
           <div class="col-sm-6">
@@ -83,7 +86,8 @@
   </div>
 
   <script>
-    function renderReview(items) {
+    // renderReview
+    renderReview = items => {
       const $review = document.querySelector('.review');
       const $total = document.querySelector('.total');
 
@@ -101,7 +105,7 @@
                     </a>
                     <div class="product-info">
                       <h4 class="product-title">
-                        <a href="">${item.title} <small>x ${item.quantity}</small></a>
+                        <a href="">${item.title} <strong>x ${item.quantity}</strong></a>
                       </h4>
                     </div>
                   </div>
@@ -115,20 +119,18 @@
         .join('');
 
       $total.innerHTML = '$' + shoppingCart.total();
-    }
-
-    function renderCartLength(item) {
-      const $cartLength = document.querySelector('.cart-length');
-      $cartLength.innerHTML = `<span>Cart(${item})</span>`;
-    }
+    };
 
     renderReview(shoppingCart.list());
 
+    // renderCartLength
+    renderCartLength = item => {
+      const $cartLength = document.querySelector('.cart-length');
+      $cartLength.innerHTML = `<span>Cart(${item})</span>`;
+    };
+
     renderCartLength(shoppingCart.cartCount());
   </script>
-
-  <!-- <lion-input name="firstName"></lion-input>
- <lion-button>Button Text</lion-button> -->
 
   <footer class="footer">
     <div class="container">

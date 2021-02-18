@@ -1,6 +1,6 @@
 {
   "name": "ing-simple-cart",
-  "version": "1.0.19",
+  "version": "1.0.21",
   "description": "Simple shopping cart on coding challenege using ES6 and Local Storage",
   "main": "index.js",
   "scripts": {

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../assets/css/style.css" />
 
     <script
-      src="https://unpkg.com/ing-simple-cart@1.0.19/dist/ing-simple-cart.min.js"
+      src="https://unpkg.com/ing-simple-cart@1.0.21/dist/ing-simple-cart.min.js"
       type="text/javascript"
     ></script>
   </head>
@@ -22,7 +22,7 @@
       <img src="../assets//image/ing-logo-full.svg" width="150" />
       <h2 class="my-0 mr-md-auto font-weight-normal ing-title-header">Shopping-Cart-Challenge</h2>
 
-      <a class="btn btn-outline-light mr-2 cart-length" href="cart.html">Cart(0)</a>
+      <a class="btn btn-outline-light mr-2 cart-length" href="cart.html"></a>
       <a class="btn btn-outline-dark" href="https://github.com/mani242530/ing-simple-cart"
         >Github Repo</a
       >
@@ -54,8 +54,11 @@
   </div>
 
   <script>
-    function renderUser(user) {
+    // renderUser
+    renderUser = user => {
       const $user = document.querySelector('.user-details');
+      const $address = document.querySelector('.address');
+
       $user.innerHTML = ` <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
@@ -81,7 +84,6 @@
               </div>
             </div>`;
 
-      const $address = document.querySelector('.address');
       $address.innerHTML = user.addresses
         .map(
           address =>
@@ -111,14 +113,16 @@
             </div>`,
         )
         .join('');
-    }
-
-    function renderCartLength(item) {
-      const $cartLength = document.querySelector('.cart-length');
-      $cartLength.innerHTML = `<span>Cart(${item})</span>`;
-    }
+    };
 
     renderUser(shoppingCart.user());
+
+    // renderCartLength
+    renderCartLength = item => {
+      const $cartLength = document.querySelector('.cart-length');
+      $cartLength.innerHTML = `<span>Cart(${item})</span>`;
+    };
+
     renderCartLength(shoppingCart.cartCount());
   </script>
 
