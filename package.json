@@ -48,8 +48,10 @@
   },
   "dependencies": {
     "@lion/button": "^0.8.11",
+    "@lion/form": "^0.8.1",
     "@lion/icon": "^0.9.5",
-    "@lion/input": "^0.10.16"
+    "@lion/input": "^0.10.16",
+    "@lion/radio-group": "^0.13.1"
   },
   "prettier": {
     "printWidth": 100,

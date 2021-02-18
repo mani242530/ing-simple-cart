@@ -50,7 +50,7 @@
           product =>
             `<div class="col-12 col-sm-6 col-md-4 col-lg-3">
             	<div class="product-card">
-				<div class="product-rating">
+    			<div class="product-rating">
                 <div class="rating-stars">
                   <i class="icon-star filled"></i>
                   <i class="icon-star filled"></i>
@@ -71,15 +71,15 @@
                 <h4 class="product-price"><del class="text-muted text-normal">$${
                   product.oldPrice
                 }</del>$${product.price}</h4>
-                <div class="product-buttons">
-                  <button type="button" class="btn btn-outline-primary btn-sm"
-				  onClick="shoppingCart.add(${`{productId: ${product.productId},
-                  title: '${product.title}',
-				  mediaUrl: '${product.mediaUrl}',
-                  price: ${product.price}}`})">Add to Cart</button>
+                <div class="product-buttons"  id="delegationTarget">
+     				 <lion-button class="btn btn-outline-primary btn-sm"  onClick="shoppingCart.add(${`{productId: ${product.productId},
+						title: '${product.title}',
+						mediaUrl: '${product.mediaUrl}',
+						price: ${product.price}}`})";">Add to Cart
+					</lion-button>
                 </div>
               </div>
-			  </div>
+    		 </div>
        		 </div>`,
         )
         .join('');
@@ -93,9 +93,6 @@
     renderProduct(shoppingCart.products());
     renderCartLength(shoppingCart.cartCount());
   </script>
-
-  <!-- <lion-input name="firstName"></lion-input>
-  <lion-button>Button Text</lion-button> -->
 
   <footer class="footer">
     <div class="container">

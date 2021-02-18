@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../assets/css/style.css" />
 
-    <script src="https://unpkg.com/ing-simple-cart@1.0.19/dist/ing-simple-cart.min.js" type="text/javascript"></script>
+    <script
+      src="https://unpkg.com/ing-simple-cart@1.0.19/dist/ing-simple-cart.min.js"
+      type="text/javascript"
+    ></script>
   </head>
 
   <header>
@@ -56,56 +59,24 @@
       $user.innerHTML = ` <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="firstname">First Name</label>
-                  <input
-                    class="form-control "
-                    formcontrolname="firstname"
-                    id="firstname"
-                    name="firstname"
-                    type="text"
-                    value="${user.firstName}"
-                  />
+                  <lion-input label="First Name" value="${user.firstName}"></lion-input>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="lastname">Last Name</label>
-                  <input
-                    class="form-control "
-                    formcontrolname="lastname"
-                    id="lastname"
-                    name="lastname"
-                    type="text"
-                    value="${user.lastName}"
-                  />
+                  <lion-input label="Last Name" value="${user.lastName}"></lion-input>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="email">E-mail Address</label>
-                  <input
-                    class="form-control"
-                    formcontrolname="email"
-                    id="email"
-                    name="email"
-                    type="email"
-                    value="${user.personalEmailAddress}"
-                  />
+                  <lion-input label="E-mail Address" value="${user.personalEmailAddress}"></lion-input>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="phone">Phone Number</label>
-                  <input
-                    class="form-control"
-                    formcontrolname="phone"
-                    id="phone"
-                    name="phone"
-                    type="text"
-                    value="${user.phoneNumber}"
-                  />
+                  <lion-input label="Phone Number" value="${user.phoneNumber}"></lion-input>
                 </div>
               </div>
             </div>`;
@@ -117,56 +88,24 @@
             `<div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="address1">Street 1</label>
-                  <input
-                    class="form-control "
-                    formcontrolname="address1"
-                    id="address1"
-                    name="address1"
-                    type="text"
-                    value="${address.street1}"
-                  />
+                  <lion-input label="Street 1" value="${address.street1}"></lion-input>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="address2">Street 2</label>
-                  <input
-                    class="form-control"
-                    formcontrolname="address2"
-                    id="address2"
-                    name="address2"
-                    type="text"
-                    value="${address.street2}"
-                  />
+                  <lion-input label="Street 2" value="${address.street2}"></lion-input>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="zip">Postal Code</label>
-                  <input
-                    class="form-control "
-                    formcontrolname="zip"
-                    id="zip"
-                    name="zip"
-                    type="text"
-                    value="${address.postalCode}"
-                  />
+                  <lion-input label="Postal Code" value="${address.postalCode}"></lion-input>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="city">City</label>
-                  <input
-                    class="form-control "
-                    formcontrolname="city"
-                    id="city"
-                    name="city"
-                    type="text"
-                    value="${address.city}"
-                  />
+                  <lion-input label="City" value="${address.city}"></lion-input>
                 </div>
               </div>
             </div>`,
@@ -182,8 +121,6 @@
     renderUser(shoppingCart.user());
     renderCartLength(shoppingCart.cartCount());
   </script>
-  <!-- <lion-input name="firstName"></lion-input>
- <lion-button>Button Text</lion-button> -->
 
   <footer class="footer">
     <div class="container">

@@ -44,10 +44,8 @@
                 <th class="text-center">Quantity</th>
                 <th class="text-center">Price</th>
                 <th class="text-center">Subtotal</th>
-                <th class="text-right">
-                  <button class="btn btn-sm btn-outline-danger" onClick="shoppingCart.destroy()">
-                    Clear Cart
-                  </button>
+                <th class="text-right" id="delegationTarget">
+                  <lion-button class="btn btn-sm btn-outline-danger">Clear Cart</lion-button>
                 </th>
               </tr>
             </thead>
@@ -148,8 +146,11 @@
     renderCartLength(shoppingCart.cartCount());
   </script>
 
-  <!-- <lion-input name="firstName"></lion-input>
- <lion-button>Button Text</lion-button> -->
+  <script>
+    delegationTarget.addEventListener('click', ev => {
+      shoppingCart.destroy();
+    });
+  </script>
 
   <footer class="footer">
     <div class="container">

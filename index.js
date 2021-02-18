@@ -1,7 +1,10 @@
 import { user, products, list, save, clear, listen } from './utils/localstorage'
 import pkg from './package.json';
-// import '@lion/input/lion-input.js';
-// import '@lion/button/lion-button.js';
+import '@lion/input/lion-input.js';
+import '@lion/button/lion-button.js';
+import '@lion/radio-group/lion-radio.js';
+import '@lion/radio-group/lion-radio-group.js';
+import '@lion/form/lion-form.js';
 
 console.log(`running version ${pkg.version}`);
 
