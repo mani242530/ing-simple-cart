@@ -22,6 +22,7 @@
     "es6",
     "localstorage"
   ],
+  "type": "module",
   "author": "Manivannan Babu",
   "license": "ISC",
   "bugs": {
@@ -51,7 +52,9 @@
     "@lion/form": "^0.8.1",
     "@lion/icon": "^0.9.5",
     "@lion/input": "^0.10.16",
-    "@lion/radio-group": "^0.13.1"
+    "@lion/radio-group": "^0.13.1",
+    "babel-jest": "^26.6.3",
+    "ts-jest": "^26.5.1"
   },
   "prettier": {
     "printWidth": 100,
